@@ -82,7 +82,36 @@ public class Node {
 		
 		return sum;
 	}
+
 	
+	/**
+	 * 链表翻转
+	 * @param head
+	 * @param from
+	 * @param to
+	 */
+	public static void reverse(Node head, int from, int to) {
+		Node cur = head.next;
+		int i;
+		for (i = 0; i < from -1 ; i++) {
+			head = cur;
+			cur = cur.next;
+		}
+		
+		Node pre = cur;
+		cur = cur.next;
+		Node next;
+		to--;
+		
+		for(; i < to ; i++) {
+			next = cur.next;
+			cur.next = head.next;
+			head.next = cur;
+			pre.next = next;
+			cur = next;
+		}
+		
+	}
 	public static void printNodeList(Node node) {
 		Node cur = node.getNext();
 		while (cur != null) {
@@ -94,6 +123,7 @@ public class Node {
 			
 			cur  = cur.next;
 		}
+		System.out.println();
 	}
 	
 	public static Node factorial(int value) {
