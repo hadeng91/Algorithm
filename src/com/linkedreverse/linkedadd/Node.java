@@ -112,6 +112,28 @@ public class Node {
 		}
 		
 	}
+	
+	/**
+	 * 去除重复链表，只保留第一次出现的数据
+	 * @param head
+	 */
+	public static void deleteDuplicateNode(Node head) {
+		Node pre = head.next;
+		Node cur = null;
+		while (pre != null) {
+			cur = pre.next;
+			if (cur != null && (cur.value == pre.value)) {
+				pre.next = cur.next;
+				cur = null;
+			}
+			else {
+				pre = cur;
+			}
+			
+			
+		}
+	}
+	
 	public static void printNodeList(Node node) {
 		Node cur = node.getNext();
 		while (cur != null) {
